@@ -1,0 +1,3 @@
+(function(){document.querySelectorAll("form[data-wa]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var d=new FormData(f),lines=[f.dataset.title];f.querySelectorAll("[name]").forEach(function(i){var v=(d.get(i.name)||"").toString().trim();if(v)lines.push(i.dataset.label+": "+v)});
+try{(window.dataLayer=window.dataLayer||[]).push({event:"form_submit",form:f.dataset.form,page_path:location.pathname});if(window.gtag)gtag("event","form_submit",{form:f.dataset.form,page_path:location.pathname})}catch(x){}
+window.open("https://wa.me/"+f.dataset.wa+"?text="+encodeURIComponent(lines.join("\n")),"_blank","noopener")})})})();
